@@ -1,0 +1,21 @@
+import { NextResponse,NextRequest } from "next/server";
+import { books } from "@/data";
+
+export async function GET(request:NextRequest){
+    return NextResponse.json({
+    books
+})
+}
+
+export async function POST(request:NextRequest){
+   
+     const body = await request.json();
+
+     const updatedata= books.push(body);
+
+     return NextResponse.json({
+        updatedata,
+        messsage:'Book add'
+     })
+
+}
